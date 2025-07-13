@@ -1,0 +1,292 @@
+﻿using MathNet.Numerics.Distributions;
+using MathNet.Numerics.Random;
+using System.Diagnostics.Metrics;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace YearningForTheMinesweeper
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        static int count4 = 0;
+
+        int rows = 10;
+        int columns = 10;
+        int adjacentMines;
+        int flags = 10;
+        int score = 0;
+        int winFlags = 0;
+        int totalButton = 0;
+
+        bool isMine; // not used but as reminder but i use angka 4 as mine
+        bool isRevealed; // not used but as reminder but i use IsEnabled as pengganti
+        bool isFlagged; // not used but as reminder
+
+        List<int> shuffledCellValues = new();
+        int currentValueIndex = 0;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            flagValueLabel.Content = flags;
+            scoreLabel.Content = score;
+            totalButton = (rows * columns) - flags;
+            debugLabelWin.Visibility = Visibility.Hidden;
+
+            InitShuffledValues();
+            InitButtons();
+        }
+
+        private void Cell_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            if (clickedButton?.Tag is CellData data)
+            {
+                clickedButton.IsEnabled = false;
+                clickedButton.Visibility = Visibility.Hidden;
+
+                if (clickedButton.Content.ToString() == "4") Reset("You Lose");
+                else if (clickedButton.Content.ToString() == "0") CheckNeighbors(data);
+                else
+                {
+                    score += (int)clickedButton.Content;
+                    scoreLabel.Content = score;
+                }
+
+
+                if (data.IsFlagged)
+                {
+                    data.IsFlagged = false;
+                    flags -= 1;
+                }
+
+                totalButton -= 1;
+
+                if (totalButton == 0 && winFlags == 10)
+                {
+                    Reset($"You Win! \n Your Total Score is {score}");
+                }
+
+                //MessageBox.Show($"You clicked ({data.Position.X}, {data.Position.Y})");
+            }
+        }
+
+        private void Cell_Flag(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton.Tag is CellData data)
+            {
+                data.IsFlagged = ChangeFlagValue(data.IsFlagged, clickedButton);
+
+                //MessageBox.Show($"You clicked ({data.Position.X}, {data.Position.Y})");
+            }
+        }
+
+        void Reset(string msg)
+        {
+            MessageBox.Show(msg);
+            GameUniformGrid.Children.Clear();
+            InitShuffledValues();
+            InitButtons();
+            flags = 10;
+            score = 0;
+            winFlags = 0;
+            totalButton = (rows * columns) - flags;
+            debugLabelWin.Content = winFlags;
+            flagValueLabel.Content = flags;
+            scoreLabel.Content = score;
+        }
+
+        bool ChangeFlagValue(bool boo, Button button)
+        {
+            string content = button.Content.ToString();
+
+            if (boo)
+            {
+                button.ClearValue(Button.BackgroundProperty);
+                flags += 1;
+                flagValueLabel.Content = flags;
+                if (content == "4") winFlags -= 1;
+                debugLabelWin.Content = winFlags;
+                return !boo;
+            }
+            else
+            {
+                button.Background = Brushes.Maroon;
+                flags -= 1;
+                flagValueLabel.Content = flags;
+                if (content == "4") winFlags += 1;
+                debugLabelWin.Content = winFlags;
+                return !boo;
+            }
+        }
+
+        void InitShuffledValues()
+        {
+            int totalCells = rows * columns;
+
+            List<int> pool = new List<int>();
+
+            for (int i = 0; i < flags; i++)
+                pool.Add(4);
+
+            RandomSource rng = new MersenneTwister();
+
+            for (int i = 0; i < totalCells - flags; i++)
+                pool.Add(rng.Next(0, 4)); 
+
+            for (int i = pool.Count - 1; i > 0; i--)
+            {
+                int j = rng.Next(i + 1);
+                (pool[i], pool[j]) = (pool[j], pool[i]);
+            }
+
+            shuffledCellValues = pool;
+            currentValueIndex = 0;
+        }
+
+        int InitLabelValues()
+        {
+            if (currentValueIndex < shuffledCellValues.Count)
+            {
+                return shuffledCellValues[currentValueIndex++];
+            }
+
+            return 0; // fallback
+        }
+
+        string ChangeLabelValue(int  value)
+        {
+            string changed = value.ToString();
+
+            if (value == 4) changed = "Ø";
+
+            else if (value == 0) changed = "";
+
+            return changed;
+        }
+
+        void CheckNeighbors(CellData cell)
+        {
+            //MessageBox.Show($"You clicked ({cell.Position.X}, {cell.Position.X})");
+
+            int x = (int)cell.Position.X;
+            int y = (int)cell.Position.Y;
+
+            int rows = GameUniformGrid.Rows;
+            int columns = GameUniformGrid.Columns;
+
+            for (int dy = -1; dy <= 1; dy++)
+            {
+                for (int dx = -1; dx <= 1; dx++)
+                {
+                    if (dx == 0 && dy == 0) continue; 
+
+                    int newX = x + dx;
+                    int newY = y + dy;
+
+                    if (newX >= 0 && newX < columns && newY >= 0 && newY < rows)
+                    {
+                        int index = newY * columns + newX;
+
+                        if (index < GameUniformGrid.Children.Count)
+                        {
+                            var neighbor = GameUniformGrid.Children[index] as Grid;
+                            var neighborButton = neighbor.Children[1] as Button;
+                            var neighborLabel = neighbor.Children[0] as Label;
+                            string content = neighborButton.Content.ToString();
+
+                            if (neighborButton != null)
+                            {
+                                //MessageBox.Show(content);
+                                if (content != "4" && content != "3")
+                                {
+                                    if (neighborButton.IsEnabled != false) 
+                                        neighborButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                                }
+                                
+                                //neighborButton.Content = "✓";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        void InitButtons()
+        {
+            GameUniformGrid.Rows = rows;
+            GameUniformGrid.Columns = columns;
+
+            int value = 0;
+
+            for (int y = 0; y < rows; y++)
+            {
+                for (int x = 0; x < columns; x++)
+                {
+                    value = InitLabelValues();
+
+                    Grid grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                    grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
+                    Label label = new Label
+                    {
+                        Content = ChangeLabelValue(value),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center
+                    };
+                    Grid.SetRow(label, 0);
+
+                    Button button = new Button
+                    {
+                        Tag = new CellData { Position = new Point(x, y), IsFlagged = false },
+                        Content = value,
+                        Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFDDDDDD"))
+                    };
+                    button.Click += Cell_Click;
+                    button.MouseRightButtonDown += Cell_Flag;
+                    Grid.SetRow(label, 0);
+
+                    grid.Children.Add(label);
+                    grid.Children.Add(button);
+
+                    GameUniformGrid.Children.Add(grid);
+                }
+            }
+        }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Reset("Reset!");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window ownerWindow = Window.GetWindow((DependencyObject)sender);
+
+            GPTVersion newWindow = new GPTVersion();
+            newWindow.Owner = ownerWindow;
+            newWindow.Show();
+        }
+    }
+    public class CellData
+    {
+        public Point Position { get; set; }
+        public bool IsFlagged { get; set; }
+    }
+
+}

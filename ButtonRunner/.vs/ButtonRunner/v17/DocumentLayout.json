@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|c:\\users\\allan\\source\\repos\\buttonrunner\\bettermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|solutionrelative:bettermainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|c:\\users\\allan\\source\\repos\\buttonrunner\\bettermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|solutionrelative:bettermainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|c:\\users\\allan\\source\\repos\\buttonrunner\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|c:\\users\\allan\\source\\repos\\buttonrunner\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{405E8BF0-596C-43FA-A0D5-F44DDDD46013}|ButtonRunner.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BetterMainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\BetterMainWindow.xaml",
+              "RelativeDocumentMoniker": "BetterMainWindow.xaml",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\BetterMainWindow.xaml",
+              "RelativeToolTip": "BetterMainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-12T03:25:32.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BetterMainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\BetterMainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "BetterMainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\BetterMainWindow.xaml.cs",
+              "RelativeToolTip": "BetterMainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T03:29:15.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-12T00:46:45.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\ButtonRunner\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAwwIEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T00:46:42.691Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

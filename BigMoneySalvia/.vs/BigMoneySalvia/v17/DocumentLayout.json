@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|c:\\users\\allan\\source\\repos\\bigmoneysalvia\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|c:\\users\\allan\\source\\repos\\bigmoneysalvia\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|c:\\users\\allan\\source\\repos\\bigmoneysalvia\\functions\\sqlshenanigans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C2213FB-0FF6-4620-9561-E5790C4FDDFF}|BigMoneySalvia.csproj|solutionrelative:functions\\sqlshenanigans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-11T02:02:42.305Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAGUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T02:02:40.4Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SQLShenanigans.cs",
+              "DocumentMoniker": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\Functions\\SQLShenanigans.cs",
+              "RelativeDocumentMoniker": "Functions\\SQLShenanigans.cs",
+              "ToolTip": "C:\\Users\\Allan\\source\\repos\\BigMoneySalvia\\Functions\\SQLShenanigans.cs",
+              "RelativeToolTip": "Functions\\SQLShenanigans.cs",
+              "ViewState": "AgIAALgAAAAAAAAAAAAYwGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T02:08:00.975Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

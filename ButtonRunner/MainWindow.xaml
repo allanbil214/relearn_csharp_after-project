@@ -1,0 +1,15 @@
+﻿<Window x:Class="ButtonRunner.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ButtonRunner"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight">
+    <Grid x:Name="MainGrid" Height="434.04" Width="800">
+        <Button x:Name="debugButton" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False"/>
+        <Label x:Name="debugLabel" Content="Debug: &#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="chaseButton" Content="Chase" HorizontalAlignment="Left" VerticalAlignment="Top" MouseEnter="chaseButton_MouseEnter" Margin="261,165,0,0" Click="chaseButton_Click"/>
+
+    </Grid>
+</Window>

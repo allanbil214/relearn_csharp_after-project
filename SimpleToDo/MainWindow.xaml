@@ -1,0 +1,129 @@
+﻿<Window x:Class="SimpleToDo.MainWindow"
+        x:Name="mainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleToDo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Header -->
+            <RowDefinition Height="Auto"/>
+            <!-- Separator -->
+            <RowDefinition Height="*"/>
+            <!-- Main Content -->
+        </Grid.RowDefinitions>
+
+        <!-- === Header === -->
+        <DockPanel Grid.Row="0">
+            <Label x:Name="titleLabel"
+                   Content="Renna's"
+                   FontWeight="Bold"
+                   FontSize="18" 
+                   Width="74" 
+                   VerticalContentAlignment="Center"/>
+            <Label x:Name="subtitleLabel"
+                   Content="To Do List App"
+                   Foreground="#FF545454"
+                   Width="87" 
+                   VerticalContentAlignment="Center" 
+                   FontSize="10" 
+                   Padding="5,9,5,5"/>
+
+            <Button x:Name="motivationButton"
+                    Content="[motivational text]"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="motivationButton_Click"
+                    HorizontalContentAlignment="Right"
+                    Padding="1,1,5,1"
+                    Margin="0,10,5,0"/>
+        </DockPanel>
+
+        <!-- === Separator === -->
+        <Separator Grid.Row="1" Margin="0,5"/>
+
+        <!-- === Main Content === -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="260"/>
+                <!-- Left input panel -->
+                <ColumnDefinition Width="10"/>
+                <!-- Gap -->
+                <ColumnDefinition Width="*"/>
+                <!-- DataGrid -->
+            </Grid.ColumnDefinitions>
+
+            <!-- === Left Panel === -->
+            <StackPanel Grid.Column="0">
+                <Label Content="The To-Do List"
+                       FontWeight="Bold"
+                       FontSize="14"
+                       FontFamily="Segoe UI Semibold"
+                       Margin="0,0,0,5"/>
+
+                <Border BorderBrush="Black" BorderThickness="1" Padding="10" Height="310">
+                    <StackPanel>
+                        <Label Content="What's the Task?"
+                               FontFamily="Segoe UI Semibold" Padding="5,0,5,0"/>
+                        <TextBox x:Name="taskTextbox"
+                                 Height="32"
+                                 Margin="0,2,0,10"
+                                 VerticalContentAlignment="Center"/>
+
+                        <Label Content="Elaborate the Plan"
+                               FontFamily="Segoe UI Semibold" Padding="5,0,5,0"/>
+                        <TextBox x:Name="descTextbox"
+                                 Height="100"
+                                 TextWrapping="Wrap"
+                                 Margin="0,2,0,10"
+                                 VerticalScrollBarVisibility="Auto"
+                                 VerticalContentAlignment="Top"/>
+
+                        <Label Content="The Status Right Now?"
+                               FontFamily="Segoe UI Semibold" Padding="5,0,5,0"/>
+                        <ComboBox x:Name="statusComboBox"
+                                  Height="32"
+                                  Margin="0,2,0,10"
+                                  VerticalContentAlignment="Center" SelectionChanged="statusComboBox_SelectionChanged"/>
+
+                        <StackPanel Orientation="Horizontal" Width="227">
+                            <Button x:Name="clearButton"
+                                    Content="Clear It"
+                                    FontWeight="Bold"
+                                    Height="33" 
+                                    Width="107" 
+                                    Margin="0,0,5,0"
+                                    Click="clearButton_Click"/>
+                            <Button x:Name="saveButton"
+                                    Content="Save It"
+                                    FontWeight="Bold"
+                                    Height="33" 
+                                    Width="114"
+                                    Click="saveButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- === DataGrid === -->
+            <DataGrid x:Name="todoTable"
+                      Grid.Column="2"
+                      d:ItemsSource="{d:SampleData ItemCount=5}"
+                      AutoGenerateColumns="True"
+                      IsReadOnly="True" 
+                      AutoGeneratingColumn="todoTable_AutoGeneratingColumn" SelectionChanged="todoTable_SelectionChanged" Margin="0,34,0,0"/>
+            <Label Grid.Column="2" Content="Search" HorizontalAlignment="Left" Margin="0,3,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,0.235"/>
+            <TextBox x:Name="searchTextbox" Grid.Column="2" HorizontalAlignment="Left" Margin="47,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" TextChanged="searchTextbox_TextChanged"/>
+            <Label Grid.Column="2" Content="Filter" HorizontalAlignment="Left" Margin="285,2,0,0" VerticalAlignment="Top"/>
+            <Label Grid.Column="2" Content="|" HorizontalAlignment="Left" Margin="267,1,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="filterComboBox" Grid.Column="2" HorizontalAlignment="Left" Margin="326,5,0,0" VerticalAlignment="Top" Width="174" SelectionChanged="filterComboBox_SelectionChanged"/>
+        </Grid>
+    </Grid>
+</Window>

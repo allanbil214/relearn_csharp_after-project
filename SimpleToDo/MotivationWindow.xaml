@@ -1,0 +1,71 @@
+﻿<Window x:Class="SimpleToDo.MotivationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleToDo"
+        mc:Ignorable="d"
+        Title="MotivationWindow" Height="406" Width="277" ResizeMode="CanMinimize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Title -->
+            <RowDefinition Height="*"/>
+            <!-- DataGrid -->
+            <RowDefinition Height="Auto"/>
+            <!-- Label -->
+            <RowDefinition Height="Auto"/>
+            <!-- TextBox -->
+            <RowDefinition Height="Auto"/>
+            <!-- Button -->
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <Label x:Name="mainMotivLabel"
+               Content="Motivating Motivation"
+               FontWeight="Bold"
+               FontSize="14"
+               FontFamily="Segoe UI Semibold"
+               HorizontalAlignment="Left"
+               Margin="0,0,0,5"/>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="motivTable"
+                  Grid.Row="1"
+                  AutoGenerateColumns="True"
+                  d:ItemsSource="{d:SampleData ItemCount=5}"
+                  Margin="0,10,0,10"
+                  IsReadOnly="True" ColumnWidth="Auto" SelectionMode="Single" SelectionChanged="motivTable_SelectionChanged" />
+
+        <!-- Motivation Text Label -->
+        <Label x:Name="motivLabel"
+               Grid.Row="2"
+               Content="Motivation Text"
+               FontFamily="Segoe UI Semibold"
+               Margin="0,0,0,3"/>
+
+        <!-- TextBox Input -->
+        <TextBox x:Name="motivationTextBox"
+                 Grid.Row="3"
+                 TextWrapping="Wrap"
+                 Height="32"
+                 VerticalContentAlignment="Center"
+                 HorizontalAlignment="Stretch"/>
+
+        <!-- Save Button -->
+        <Button x:Name="saveButton"
+                Grid.Row="4"
+                Content="Save It"
+                FontWeight="Bold"
+                Height="39"
+                Margin="128,10,1,0"
+                Click="saveButton_Click"/>
+        <Button x:Name="clearButton"
+            Grid.Row="4"
+            Content="Clear It"
+            FontWeight="Bold"
+            Height="39"
+            Margin="0,10,129,0"
+            Click="clearButton_Click"/>
+    </Grid>
+</Window>
